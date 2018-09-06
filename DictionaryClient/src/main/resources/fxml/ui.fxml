@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- imports -->
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.text.Font?>
+
+<!-- Layout -->
+<BorderPane fx:id="borderPane" prefHeight="700" prefWidth="600" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controller">
+    <right>
+        <GridPane BorderPane.alignment="CENTER">
+            <!-- constraints -->
+            <columnConstraints>
+                <!--left-->
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="200" maxWidth="200" prefWidth="200"/>
+                <!--middle-->
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="230" maxWidth="230" prefWidth="230"/>
+                <!--right-->
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="200"  prefWidth="270"/>
+            </columnConstraints>
+            <rowConstraints>
+                <!-- title bar -->
+                <RowConstraints minHeight="50" maxHeight="50" prefHeight="50" vgrow="SOMETIMES"/>
+                <!-- word & button -->
+                <RowConstraints minHeight="150" maxHeight="150" prefHeight="150" vgrow="SOMETIMES" valignment="CENTER"/>
+                <!-- definition -->
+                <RowConstraints minHeight="300" maxHeight="300" prefHeight="300" vgrow="SOMETIMES" valignment="CENTER"/>
+                <!--blank-->
+                <RowConstraints minHeight="50" prefHeight="150" vgrow="SOMETIMES"/>
+            </rowConstraints>
+
+            <!-- title bar -->
+            <HBox prefHeight="100.0" prefWidth="75.0" alignment="TOP_RIGHT" GridPane.rowIndex="0" GridPane.columnIndex="2">
+                <Button id="MinimizedBtn" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" maxHeight="24.0" maxWidth="68.0" minWidth="45.0" mnemonicParsing="false" onAction="#minimizeWindow" prefHeight="24.0" prefWidth="45.0" stylesheets="@../css/main.css">
+                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                </Button>
+                <Button id="CloseBtn" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" maxHeight="24.0" maxWidth="68.0" minWidth="45.0" mnemonicParsing="false" onAction="#closeSystem" prefHeight="24.0" prefWidth="45.0" stylesheets="@../css/main.css">
+                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                </Button>
+                <GridPane.margin>
+                    <Insets right="10.0" top="10.0" />
+                </GridPane.margin>
+            </HBox>
+
+            <!-- search area -->
+            <TextField fx:id="wordTextfield" prefHeight="45" prefWidth="340" minWidth="340" maxWidth="340" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+            <!--adding area-->
+            <GridPane fx:id="addingArea" visible="false" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="3" >
+                <columnConstraints>
+                    <!--left-->
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="50" maxWidth="50" prefWidth="50"/>
+                    <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="50" prefWidth="300"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints/>
+                    <RowConstraints  minHeight="200" prefHeight="200"/>
+                </rowConstraints>
+                <Label text="Please insert the definition for the word:" textFill="#f89406" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <font><Font size="20"/></font>
+                </Label>
+                <TextField fx:id="addTextfield" alignment="TOP_LEFT" prefHeight="180" prefWidth="600" minWidth="600" maxWidth="600" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                <Button id="confirm" onAction="#add" GridPane.rowIndex="2" GridPane.columnIndex="1" contentDisplay="CENTER" mnemonicParsing="false" stylesheets="@../css/main.css" text="ADD" />
+            </GridPane>
+                <!--buttons-->
+            <GridPane GridPane.rowIndex="1" GridPane.columnIndex="2">
+                <rowConstraints>
+                    <RowConstraints minHeight="150" maxHeight="150" prefHeight="150" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <columnConstraints>
+                    <!--search-->
+                    <ColumnConstraints prefWidth="120" halignment="CENTER"/>
+                    <!--add-->
+                    <ColumnConstraints prefWidth="50" halignment="CENTER"/>
+                    <!--delete-->
+                    <ColumnConstraints prefWidth="50" halignment="RIGHT"/>
+                </columnConstraints>
+                <Button id="searchBtn" GridPane.columnIndex="0" onAction="#SearchAction" prefHeight="45" prefWidth="105" minWidth="105" maxWidth="105" contentDisplay="CENTER" mnemonicParsing="false" stylesheets="@../css/main.css" text="Search" />
+                <Button id="addBtn"  GridPane.columnIndex="1" onAction="#AddAction" prefHeight="45" prefWidth="45" minWidth="45" maxWidth="45" contentDisplay="CENTER" mnemonicParsing="false" stylesheets="@../css/main.css" text="➕" />
+                <Button id="delBtn" GridPane.columnIndex="2" onAction="#DelAction" prefHeight="45" prefWidth="45" minWidth="45" maxWidth="45" contentDisplay="RIGHT" mnemonicParsing="false" stylesheets="@../css/main.css" text="➖" />
+            </GridPane>
+
+            <!-- definition -->
+            <TextField fx:id="definitionField" prefWidth="600" maxWidth="600" prefHeight="300" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="3" editable="false"/>
+
+            <!-- footer -->
+            <Label text="Author: Xu Wang (Student Id: 979895)" textFill="#f89406" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                <font><Font size="10.0" /></font>
+            </Label>
+        </GridPane>
+    </right>
+</BorderPane>
+
+

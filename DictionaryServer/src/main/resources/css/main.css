@@ -1,0 +1,18 @@
+#CloseBtn {
+    -fx-graphic: url("../images/close_normal.png");
+    -fx-background-color:transparent;
+    -fx-opacity: 1;
+}
+
+#CloseBtn:hover {
+    -fx-graphic: url("../images/close.png");
+    -fx-opacity: 0.5;
+}
+#CloseBtn:pressed {
+    -fx-graphic: url("../images/close.png");
+    -fx-opacity: 0.2;
+}
+
+#title {
+    -fx-background-color: #e3e3e3;
+}

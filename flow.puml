@@ -1,0 +1,24 @@
+@startuml
+(*)  --> "start ServerUI" as serverui
+serverui --> "ServerController.initialize() the Pane"
+If "Start Button is clicked()" then
+-->[Yes] "start ServerSocket" as ss
+else
+--> "close ServerSocket"
+ss --> "S-Thread-Handler.start()" as sss
+--> "S-Thread-MessageListener.start()"
+--> "read the Dictionary file"
+
+"start ClientUI" -->   "Controller.initialize() the Pane"
+--> "C-Thread-MessageListener.start()"
+--> sss
+
+
+'If "input is verbose" then
+'--> [Yes] "turn on verbosity"
+'--> "run command"
+'else
+'--> "run command"
+'Endif
+'-->(*)
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+actor Client1
+actor Client2
+
+Client1 -> Server: Socket Connection Request
+Client2 -> Server: Socket Connection Request
+Server --> Client1: Accepted
+Client1 <-> Server: Connected
+Server --> Client2: Accepted
+Client2 <-> Server: Connected
+
+database Dictionary
+Client1 -> Server: search / add / remove word(s)
+Server -> Dictionary: search / add / remove word(s)
+Client2 -> Server: search / add / remove word(s)
+
+Dictionary --> Server: definition / other responses
+Client1 <-- Server: definition Response
+
+Server -> Dictionary: search / add / remove word(s)
+Dictionary --> Server: definition / other responses
+Client2 <-- Server: definition Response
+
+@enduml
